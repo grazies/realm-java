@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Realm-java by grazies</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Realm-java</h1>
+      <h2 class="project-tagline">Realm is a mobile database: a replacement for SQLite &amp; ORMs</h2>
+      <a href="https://github.com/grazies/realm-java" class="btn">View on GitHub</a>
+      <a href="https://github.com/grazies/realm-java/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/grazies/realm-java/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <p><img src="logo.png" alt="Realm"></p>
+
+<p>Realm is a mobile database that runs directly inside phones, tablets or wearables.
+This repository holds the source code for the Java version of Realm, which currently runs only on Android.</p>
+
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Features</h2>
+
+<ul>
+<li>
+<strong>Mobile-first:</strong> Realm is the first database built from the ground up to run directly inside phones, tablets and wearables.</li>
+<li>
+<strong>Simple:</strong> Data is directly exposed as objects and queryable by code, removing the need for ORM's riddled with performance &amp; maintenance issues. Plus, we've worked hard to <a href="https://realm.io/docs/java/">keep our API down to very few classes</a>: most of our users pick it up intuitively, getting simple apps up &amp; running in minutes.</li>
+<li>
+<strong>Modern:</strong> Realm supports easy thread-safety, relationships &amp; encryption.</li>
+<li>
+<strong>Fast:</strong> Realm is faster than even raw SQLite on common operations, while maintaining an extremely rich feature set.</li>
+</ul>
+
+<h2>
+<a id="getting-started" class="anchor" href="#getting-started" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting Started</h2>
+
+<p>Please see the <a href="https://realm.io/docs/java/#installation">detailed instructions in our docs</a> to add Realm to your project.</p>
+
+<h2>
+<a id="documentation" class="anchor" href="#documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Documentation</h2>
+
+<p>Documentation for Realm can be found at <a href="https://realm.io/docs/java">realm.io/docs/java</a>.
+The API reference is located at <a href="https://realm.io/docs/java/api">realm.io/docs/java/api</a>.</p>
+
+<h2>
+<a id="getting-help" class="anchor" href="#getting-help" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting Help</h2>
+
+<ul>
+<li>
+<strong>Need help with your code?</strong>: Look for previous questions on the <a href="https://stackoverflow.com/questions/tagged/realm?sort=newest">#realm tag</a> — or <a href="http://stackoverflow.com/questions/ask?tags=realm">ask a new question</a>. We activtely monitor &amp; answer questions on SO!</li>
+<li>
+<strong>Have a bug to report?</strong> <a href="https://github.com/realm/realm-java/issues/new">Open an issue</a>. If possible, include the version of Realm, a full log, the Realm file, and a project that shows the issue.</li>
+<li>
+<strong>Have a feature request?</strong> <a href="https://github.com/realm/realm-java/issues/new">Open an issue</a>. Tell us what the feature should do, and why you want the feature.</li>
+<li>Sign up for our <a href="http://eepurl.com/VEKCn"><strong>Community Newsletter</strong></a> to get regular tips, learn about other use-cases and get alerted of blogposts and tutorials about Realm.</li>
+</ul>
+
+<h2>
+<a id="using-snapshots" class="anchor" href="#using-snapshots" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Using Snapshots</h2>
+
+<p>If you want to test recent bugfixes or features that have not been packaged in an official release yet, you can use a <strong>-SNAPSHOT</strong> release of the current development version of Realm via Gradle, available on <a href="http://oss.jfrog.org/oss-snapshot-local/io/realm/realm-android/">OJO</a></p>
+
+<div class="highlight highlight-source-groovy-gradle"><pre><span class="pl-en">buildscript</span> {
+    repositories {
+        maven {
+            url <span class="pl-s"><span class="pl-pds">'</span>http://oss.jfrog.org/artifactory/oss-snapshot-local<span class="pl-pds">'</span></span>
+        }
+    }
+    dependencies {
+        classpath <span class="pl-s"><span class="pl-pds">"</span>io.realm:realm-gradle-plugin:&lt;version&gt;-SNAPSHOT<span class="pl-pds">"</span></span>
+    }
+}
+
+<span class="pl-en">repositories</span> {
+    maven {
+        url <span class="pl-s"><span class="pl-pds">'</span>http://oss.jfrog.org/artifactory/oss-snapshot-local<span class="pl-pds">'</span></span>
+    }
+}</pre></div>
+
+<p>See <a href="version.txt">version.txt</a> for the latest version number.</p>
+
+<h2>
+<a id="building-realm" class="anchor" href="#building-realm" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Building Realm</h2>
+
+<p>In case you don't want to use the precompiled version, you can build Realm yourself from source.</p>
+
+<h3>
+<a id="prerequisites" class="anchor" href="#prerequisites" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Prerequisites</h3>
+
+<ul>
+<li>Download the <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html"><strong>JDK 7</strong></a> or <a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html"><strong>JDK 8</strong></a> from Oracle and install it.</li>
+<li>Download &amp; install the Android SDK <strong>Build-Tools 24.0.0</strong>, <strong>Android N (API 24)</strong> (for example through Android Studio’s <strong>Android SDK Manager</strong>).</li>
+<li>Download the <strong>Android NDK (= r10e)</strong> for <a href="http://dl.google.com/android/ndk/android-ndk-r10e-darwin-x86_64.bin">OS X</a> or <a href="http://dl.google.com/android/ndk/android-ndk-r10e-linux-x86_64.bin">Linux</a>.</li>
+<li>Install CMake from SDK manager in Android Studio ("SDK Tools" -&gt; "CMake").</li>
+<li>
+<p>Or you can use <a href="https://github.com/Homebrew/homebrew-versions">Hombrew-versions</a> to install Android NDK for Mac:</p>
+
+<pre><code>brew tap homebrew/versions
+brew install android-ndk-r10e
+</code></pre>
+</li>
+<li>
+<p>Add two environment variables to your profile:</p>
+
+<pre><code>export ANDROID_HOME=~/Library/Android/sdk
+export ANDROID_NDK_HOME=/usr/local/Cellar/android-ndk-r10e/r10e
+</code></pre>
+</li>
+<li>
+<p>If you want to build with Android Studio, <code>ndk.dir</code> has to be defined in the <code>realm/local.properties</code> as well.</p>
+
+<pre><code>ndk.dir=/usr/local/Cellar/android-ndk-r10e/r10e
+</code></pre>
+</li>
+<li>
+<p>If you are using OS X, you'd be better to add following lines to <code>~/.profile</code> (or <code>~/.zprofile</code> if the login shell is <code>zsh</code>) in order for Android Studio to see those environment variables.</p>
+
+<pre><code>launchctl setenv ANDROID_HOME "$ANDROID_HOME"
+launchctl setenv ANDROID_NDK_HOME "$ANDROID_NDK_HOME"
+</code></pre>
+</li>
+<li>
+<p>And if you'd like to specify the location to store the archives of Realm's core, set <code>REALM_CORE_DOWNLOAD_DIR</code> environment variable. It enables you to keep core's archive when executing <code>git clean -xfd</code>.</p>
+
+<pre><code>export REALM_CORE_DOWNLOAD_DIR=~/.realmCore
+</code></pre>
+
+<p>OS X users should also add following line to <code>~/.profile</code> (or <code>~/.zprofile</code> if the login shell is <code>zsh</code>) in order for Android Studio to see this environment variable..</p>
+
+<pre><code>launchctl setenv REALM_CORE_DOWNLOAD_DIR "$REALM_CORE_DOWNLOAD_DIR"
+</code></pre>
+</li>
+</ul>
+
+<h3>
+<a id="download-sources" class="anchor" href="#download-sources" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Download sources</h3>
+
+<p>You can download the source code of Realm Java by using git. Since realm-java has git submodules, use <code>--recursive</code> when cloning the repository.</p>
+
+<pre><code>git clone git@github.com:realm/realm-java.git --recursive
+</code></pre>
+
+<p>or</p>
+
+<pre><code>git clone https://github.com/realm/realm-java.git --recursive
+</code></pre>
+
+<h3>
+<a id="build" class="anchor" href="#build" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Build</h3>
+
+<p>Once you have completed all the pre-requisites building Realm is done with a simple command</p>
+
+<pre><code>./gradlew assemble
+</code></pre>
+
+<p>That command will generate:</p>
+
+<ul>
+<li>a jar file for the Realm Gradle plugin</li>
+<li>an aar file for the Realm library</li>
+<li>a jar file for the annotations</li>
+<li>a jar file for the annotations processor</li>
+</ul>
+
+<h3>
+<a id="other-commands" class="anchor" href="#other-commands" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Other Commands</h3>
+
+<ul>
+<li>
+<code>./gradlew tasks</code> will show all the available tasks</li>
+<li>
+<code>./gradlew javadoc</code> will generate the Javadocs</li>
+<li>
+<code>./gradlew monkeyExamples</code> will run the monkey tests on all the examples</li>
+<li>
+<code>./gradlew installRealmJava</code> will install the Realm library and plugin to mavenLocal()</li>
+<li>
+<code>./gradlew clean -PdontCleanJniFiles</code> will remove all generated files except for JNI related files. This saves recompilation time a lot.</li>
+<li>
+<code>./gradlew connectedUnitTests -PbuildTargetABIs=$(adb shell getprop ro.product.cpu.abi)</code> will build JNI files only for the ABI which corresponds to the connected device.</li>
+</ul>
+
+<p>Generating the Javadoc using the command above will report a large number of warnings. The Javadoc is generated, and we will fix the issue in the near future.</p>
+
+<h3>
+<a id="gotchas" class="anchor" href="#gotchas" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Gotchas</h3>
+
+<p>The repository is organized in six Gradle projects:</p>
+
+<ul>
+<li>
+<code>realm</code>: it contains the actual library (including the JNI layer) and the annotations processor.</li>
+<li>
+<code>realm-annotations</code>: it contains the annotations defined by Realm.</li>
+<li>
+<code>realm-transformer</code>: it contains the bytecode transformer.</li>
+<li>
+<code>gradle-plugin</code>: it contains the Gradle plugin.</li>
+<li>
+<code>examples</code>: it contains the example projects. This project directly depends on <code>gradle-plugin</code> which adds a dependency to the artifacts produced by <code>realm</code>.</li>
+<li>The root folder is another Gradle project and all it does is orchestrating the other jobs</li>
+</ul>
+
+<p>This means that <code>./gradlew clean</code> and <code>./gradlew cleanExamples</code> will fail if <code>assembleExamples</code> has not been executed first.
+Note that IntelliJ <a href="https://youtrack.jetbrains.com/issue/IDEABKL-6118#">does not support multiple projects in the same window</a>
+so each sub-project must be opened in its own window.</p>
+
+<h2>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Examples</h2>
+
+<p>The <code>./examples</code> folder contain a number of example projects showing how Realm can be used. If this is the first time you checkout or pull a new version of this repository to try the examples, you must call <code>./gradlew installRealmJava</code> from the top-level directory first. Otherwise the examples will not compile as they depend on all Realm artifacts being installed in <code>mavenLocal()</code>.</p>
+
+<p>Standalone examples can be <a href="https://realm.io/docs/java/latest/#getting-started">downloaded from website</a>.</p>
+
+<h2>
+<a id="running-tests-using-the-realm-object-server" class="anchor" href="#running-tests-using-the-realm-object-server" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Running Tests Using The Realm Object Server</h2>
+
+<p>Tests in <code>realm/realm-library/src/syncIntegrationTest</code> require a running testing server to work.
+A docker image can be built from <code>tools/sync_test_server/Dockerfile</code> to run the test server.
+<code>tools/sync_test_server/start_server.sh</code> will build the docker image automatically.</p>
+
+<p>To run a testing server locally:</p>
+
+<ol>
+<li><p>Install docker.</p></li>
+<li><p>Run <code>tools/sync_test_server/start_server.sh</code>:</p></li>
+</ol>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> tools/sync_test_server
+./start_server.sh</pre></div>
+
+<ol>
+<li>Run instrumentation tests:</li>
+</ol>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c1">cd</span> realm
+./gradlew connectedObjectServerDebugAndroidTest</pre></div>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>See <a href="CONTRIBUTING.md">CONTRIBUTING.md</a> for more details!</p>
+
+<p>This project adheres to the <a href="https://realm.io/conduct">Contributor Covenant Code of Conduct</a>.
+By participating, you are expected to uphold this code. Please report
+unacceptable behavior to <a href="mailto:info@realm.io">info@realm.io</a>.</p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p>Realm Java is published under the Apache 2.0 license.
+The underlying core is available under the <a href="LICENSE#L210-L243">Realm Core Binary License</a> while we <a href="https://realm.io/docs/java/#faq">work to open-source it under the Apache 2.0 license</a>.</p>
+
+<p><strong>This product is not being made available to any person located in Cuba, Iran,
+North Korea, Sudan, Syria or the Crimea region, or to any other person that is
+not eligible to receive the product under U.S. law.</strong></p>
+
+<h2>
+<a id="feedback" class="anchor" href="#feedback" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Feedback</h2>
+
+<p><strong><em>If you use Realm and are happy with it, all we ask is that you please consider sending out a tweet mentioning <a href="http://twitter.com/realm">@realm</a>, announce your app on <a href="https://groups.google.com/forum/#!forum/realm-java">our mailing-list</a>, or email <a href="mailto:help@realm.io">help@realm.io</a> to let us know about it!</em></strong></p>
+
+<p><strong><em>And if you don't like it, please let us know what you would like improved, so we can fix it!</em></strong></p>
+
+<p><img src="https://ga-beacon.appspot.com/UA-50247013-2/realm-java/README?pixel" alt="analytics"></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/grazies/realm-java">Realm-java</a> is maintained by <a href="https://github.com/grazies">grazies</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
